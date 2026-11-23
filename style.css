@@ -1,0 +1,43 @@
+
+<h1>Visão Acessível ❤️</h1>
+<p id="texto">Bem-vindo! Este site ajuda pessoas com deficiência visual.</p>
+
+<button onclick="falar()">🔊 Ouvir texto</button>
+<button onclick="aumentar()">Aumentar letras</button>
+<button onclick="contraste()">Alto contraste</button>
+
+<script src="script.js"></script>
+<link rel="stylesheet" href="style.css">
+body {
+  background: white;
+  color: black;
+  font-size: 22px;
+  text-align: center;
+  font-family: Arial;
+}
+
+button {
+  padding: 15px;
+  margin: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.escuro {
+  background: black;
+  color: yellow;
+}
+function falar() {
+  let texto = document.getElementById("texto").innerText;
+  let voz = new SpeechSynthesisUtterance(texto);
+  voz.lang = "pt-BR";
+  speechSynthesis.speak(voz);
+}
+
+function aumentar() {
+  document.body.style.fontSize = "35px";
+}
+
+function contraste() {
+  document.body.classList.toggle("escuro");
+}
